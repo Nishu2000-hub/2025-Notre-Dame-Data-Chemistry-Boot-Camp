@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: Literature Review Automation with AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .step-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Literature Review Automation Demo</h1>
+            <p class="mt-3 text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">A demonstration of using an AI assistant to accelerate research, from initial search to deep conversational exploration.</p>
+            <p class="mt-2 text-sm text-gray-500"><strong>Topic:</strong> The impact of remote work on employee productivity and well-being.</p>
+        </header>
+
+        <!-- Steps Container -->
+        <div class="space-y-12">
+
+            <!-- Step 1: Launch Canvas -->
+            <section id="canvas" class="step-card bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex items-center mb-6">
+                    <div class="flex-shrink-0 bg-orange-500 text-white rounded-full h-10 w-10 flex items-center justify-center text-xl font-bold">1</div>
+                    <h2 class="ml-4 text-2xl font-semibold text-gray-800">Launch Gemini Canvas: Your Collaborative Workspace</h2>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <div class="flex items-start space-x-4">
+                        <!-- User Icon -->
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                            <svg class="h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">Your Action:</p>
+                            <p class="text-gray-600 italic">Click the "Open Canvas" or "New Document" button to start a new collaborative session for your literature review.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-t border-gray-200 pt-4">
+                     <div class="flex items-start space-x-4">
+                        <!-- AI Icon -->
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-orange-100 flex items-center justify-center">
+                             <svg class="h-5 w-5 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 013.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">What Happens:</p>
+                            <div class="text-gray-600 mt-2 space-y-3">
+                                <p>A blank document or workspace appears. This is your "Canvas," a shared space where both you and the AI assistant can write, edit, and organize information in real-time. All the following steps will take place within this environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Search -->
+            <section id="search" class="step-card bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex items-center mb-6">
+                    <div class="flex-shrink-0 bg-blue-500 text-white rounded-full h-10 w-10 flex items-center justify-center text-xl font-bold">2</div>
+                    <h2 class="ml-4 text-2xl font-semibold text-gray-800">Search: Finding Foundational Papers</h2>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <div class="flex items-start space-x-4">
+                        <!-- User Icon -->
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                            <svg class="h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">Your Prompt:</p>
+                            <p class="text-gray-600 italic">"Act as a research assistant. Find 5 highly-cited, peer-reviewed articles from the last 5 years about the impact of remote work on both employee productivity and mental well-being."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-t border-gray-200 pt-4">
+                     <div class="flex items-start space-x-4">
+                        <!-- AI Icon -->
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+                             <svg class="h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 013.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">AI Assistant Response:</p>
+                            <div class="text-gray-600 mt-2 space-y-3">
+                                <p>Certainly. Here are five relevant and highly-cited articles:</p>
+                                <ol class="list-decimal list-inside space-y-2 pl-2">
+                                    <li><strong>Bloom, N., et al. (2021).</strong> "Does Working from Home Work? Evidence from a Chinese Experiment." <em>The Quarterly Journal of Economics.</em></li>
+                                    <li><strong>Gajendran, R. S., & Harrison, D. A. (2017).</strong> "The Good, the Bad, and the Unknown About Telecommuting: Meta-Analysis of Psychological Mediators and Individual Consequences." <em>Journal of Applied Psychology.</em></li>
+                                    <li><strong>Wang, B., et al. (2021).</strong> "Work from home and employee well-being in the COVID-19 pandemic: A moderated mediation model." <em>Journal of Occupational Health Psychology.</em></li>
+                                    <li><strong>Bentley, T. A., et al. (2016).</strong> "The role of workplace stressors in remote worker burnout." <em>Work & Stress.</em></li>
+                                    <li><strong>Choudhury, P. (2020).</strong> "Our Work-from-Anywhere Future: A/B Testing remote work at the U.S. Patent Office." <em>Harvard Business Review.</em></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Summary -->
+            <section id="summary" class="step-card bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex items-center mb-6">
+                    <div class="flex-shrink-0 bg-green-500 text-white rounded-full h-10 w-10 flex items-center justify-center text-xl font-bold">3</div>
+                    <h2 class="ml-4 text-2xl font-semibold text-gray-800">Summary & Synthesis</h2>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                            <svg class="h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">Your Prompt:</p>
+                            <p class="text-gray-600 italic">"Based on these papers, synthesize the key findings. What is the general consensus on how remote work affects productivity and well-being?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-t border-gray-200 pt-4">
+                     <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
+                             <svg class="h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 01-3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">AI Assistant Response:</p>
+                            <div class="text-gray-600 mt-2 space-y-3">
+                                <p>The consensus is nuanced, with effects depending heavily on context and individual factors. Here is a synthesis of the key findings:</p>
+                                <ul class="list-disc list-outside space-y-2 pl-5">
+                                    <li><strong>Productivity:</strong> The findings are generally positive but conditional. Studies like Bloom et al. (2021) and Choudhury (2020) show significant productivity gains (13-22%), often attributed to fewer distractions and more focused work time. However, this is most true for tasks requiring individual concentration. Collaborative or creative tasks may suffer without structured in-person interaction.</li>
+                                    <li><strong>Well-being:</strong> This is a double-edged sword. Gajendran & Harrison (2017) found that remote work increases job satisfaction and autonomy while reducing work-family conflict. Conversely, Wang et al. (2021) and Bentley et al. (2016) highlight major risks, including social isolation, blurred work-life boundaries, and a higher propensity for burnout if not managed properly.</li>
+                                </ul>
+                                <p class="font-medium"><strong>Overall Synthesis:</strong> Remote work can boost productivity and well-being, but its success is not automatic. It depends on factors like job type, employee autonomy, and strong organizational support to mitigate the risks of isolation and burnout.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4: Q&A -->
+            <section id="qa" class="step-card bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex items-center mb-6">
+                    <div class="flex-shrink-0 bg-purple-500 text-white rounded-full h-10 w-10 flex items-center justify-center text-xl font-bold">4</div>
+                    <h2 class="ml-4 text-2xl font-semibold text-gray-800">Conversational Q&A: Deeper Exploration</h2>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg">
+                     <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                            <svg class="h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">Your Prompt:</p>
+                            <p class="text-gray-600 italic">"That's a very clear synthesis. What are the key 'moderating factors' the literature identifies? In other words, what determines whether a remote work arrangement will be successful or not?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-t border-gray-200 pt-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center">
+                             <svg class="h-5 w-5 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035 .259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178 .398a3.375 3.375 0 00-2.456 2.456z" /></svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">AI Assistant Response:</p>
+                            <div class="text-gray-600 mt-2 space-y-3">
+                                <p>Excellent question. This moves from "what" the research says to "why." The literature points to several critical moderating factors:</p>
+                                <ul class="list-disc list-outside space-y-2 pl-5">
+                                    <li><strong>Job Characteristics:</strong> The most significant factor. Jobs that involve high levels of autonomous, individual tasks (e.g., coding, writing, data analysis) are better suited for remote work. Roles requiring frequent, spontaneous collaboration see more challenges.</li>
+                                    <li><strong>Managerial Support & Trust:</strong> The quality of management is paramount. Managers who focus on outcomes rather than observed hours, and who actively foster communication and trust, see better performance and well-being in their remote teams.</li>
+                                    <li><strong>Employee Autonomy & Self-Discipline:</strong> Employees with high intrinsic motivation and self-discipline thrive in remote settings. Those who require more external structure can struggle with focus and work-life separation.</li>
+                                    <li><strong>Technological Infrastructure:</strong> Reliable and seamless access to communication tools, shared documents, and company networks is a foundational requirement. Poor technology can be a major source of frustration and productivity loss.</li>
+                                    <li><strong>Social Connection Initiatives:</strong> Organizations that are intentional about creating virtual social opportunities (virtual coffee chats, team-building events) can successfully mitigate the loneliness and isolation that often come with remote work.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 5: Voice Input -->
+            <section id="voice" class="step-card bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex items-center mb-6">
+                    <div class="flex-shrink-0 bg-indigo-500 text-white rounded-full h-10 w-10 flex items-center justify-center text-xl font-bold">5</div>
+                    <h2 class="ml-4 text-2xl font-semibold text-gray-800">Voice Input: A More Natural Conversation</h2>
+                </div>
+
+                <div class="bg-gray-100 p-4 rounded-lg">
+                     <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
+                                <path d="M5.5 9.5a.5.5 0 01.5.5v1a4 4 0 004 4h.5a.5.5 0 010 1h-.5a5 5 0 01-5-5v-1a.5.5 0 01.5-.5z" />
+                                <path d="M10 18a.5.5 0 00.5-.5v-2a.5.5 0 00-1 0v2A.5.5 0 0010 18zM8.5 3a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM11.5 3a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">Your Action (Spoken):</p>
+                            <p class="text-gray-600 italic">"Okay, that makes sense. Could you draft a paragraph for my paper's introduction that summarizes the productivity benefits and the key risks to well-being?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-t border-gray-200 pt-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                             <svg class="h-5 w-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 01-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 01-3.09 3.09L9 5.25l.813 2.846a4.5 4.5 0 013.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 01-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.572L16.5 21.75l-.398-1.178a3.375 3.375 0 00-2.455-2.456L12.75 18l1.178-.398a3.375 3.375 0 002.455-2.456L16.5 14.25l.398 1.178a3.375 3.375 0 002.456 2.456L20.25 18l-1.178.398a3.375 3.375 0 00-2.456 2.456z" /></svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-700">AI Assistant Response:</p>
+                            <div class="text-gray-600 mt-2 space-y-3">
+                                <p>The AI transcribes your voice to text in real-time and processes the request. The assistant then drafts the paragraph directly into the Canvas for you to review and edit.</p>
+                                <div class="p-4 bg-gray-100 rounded-md border border-gray-200 mt-2">
+                                    <p class="font-medium text-gray-800">Drafted Paragraph:</p>
+                                    <p class="text-gray-600 italic mt-1">"Recent literature indicates that the transition to remote work presents a significant duality. On one hand, studies consistently find potential for marked productivity increases, largely attributed to greater employee autonomy and fewer workplace distractions. On the other hand, this operational shift is not without its challenges, as research also highlights considerable risks to employee well-being, including social isolation and the erosion of work-life boundaries, which can ultimately lead to burnout..."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Conclusion -->
+        <footer class="text-center mt-16">
+            <p class="text-gray-600 max-w-3xl mx-auto">This demo illustrates how an AI assistant transforms the literature review process from a static, linear task into a dynamic, interactive conversation. It allows researchers to quickly scope a field, synthesize key results, and identify critical nuances for further investigation.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

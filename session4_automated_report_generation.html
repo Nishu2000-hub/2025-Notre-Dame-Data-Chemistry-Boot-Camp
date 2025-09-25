@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 4 Automated report generation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed with a top-level tabbed navigation structure to segment the tutorial into three logical parts: 'Introduction', 'Demos', and 'Hands-On Exercise'. This is more user-friendly than a long scrolling page, allowing users to jump directly to the content they need. The 'Demos' section contains nested navigation for 'Cursor' and 'Gemini', further organizing the content. This interactive, non-linear structure enhances usability by breaking down a complex tutorial into digestible, self-contained modules that the user can explore at their own pace. -->
+    <!-- Visualization & Content Choices: 
+    - Report Info: Main Tutorial Sections (Intro, Demos, Exercise) -> Goal: Organize -> Viz/Presentation Method: Interactive Tab Navigation -> Interaction: Click tabs to show/hide content panels -> Justification: Provides a clear, high-level structure for the entire tutorial, improving navigation and user experience over a linear document. Method: HTML/CSS/JS.
+    - Report Info: Cursor Demo Workflow -> Goal: Organize/Show Process -> Viz/Presentation Method: A series of styled cards for prompts and code, culminating in an interactive chart. -> Interaction: Chart tooltips on hover. -> Justification: Visually demonstrates the cause-and-effect of the AI prompts, with the interactive chart serving as a tangible final product. Library: Chart.js/Canvas. CONFIRMING NO SVG.
+    - Report Info: Gemini Demo Workflow -> Goal: Organize/Inform -> Viz/Presentation Method: Sequenced cards containing formatted prompts, code blocks, and JSON output. -> Interaction: None. -> Justification: Presents technical information in a structured and highly readable format suitable for a learning environment. Method: HTML/CSS. CONFIRMING NO SVG/Mermaid.
+    - Report Info: Hands-On Exercise -> Goal: Organize/Inform -> Viz/Presentation Method: A two-column grid for the main tasks and a styled list for topic suggestions. -> Interaction: None. -> Justification: Clearly separates the student tasks and makes the suggested topics easy to scan and choose from. Method: HTML/CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F5F2; /* Warm Neutral BG */
+        }
+        .text-primary { color: #4A4A4A; } /* Dark Gray */
+        .text-secondary { color: #7B6D64; } /* Muted Brown */
+        .text-accent { color: #D98C62; } /* Muted Orange */
+        .bg-accent { background-color: #D98C62; }
+        .border-accent { border-color: #D98C62; }
+        .bg-panel { background-color: #FFFFFF; }
+        .bg-panel-light { background-color: #FDFBF9; }
+        .tab-active {
+            border-bottom: 3px solid #D98C62;
+            color: #4A4A4A;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            color: #7B6D64;
+            border-bottom: 3px solid transparent;
+        }
+        .sub-tab-active {
+            background-color: #D98C62;
+            color: white;
+        }
+        .sub-tab-inactive {
+            background-color: #EFEBE8;
+            color: #7B6D64;
+        }
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="text-primary">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold">Session 4 Automated report generation</h1>
+            <p class="mt-3 text-lg text-secondary max-w-3xl mx-auto">How to leverage AI tools to Parse Data, Analyze, visualize Data and Gain insights from Data </p>
+        </header>
+
+        <nav class="mb-8 border-b border-gray-200">
+            <ul class="flex justify-center -mb-px">
+                <li><button id="tab-intro" class="tab-btn text-lg px-6 py-3 transition-colors duration-200 ease-in-out">Introduction</button></li>
+                <li><button id="tab-demos" class="tab-btn text-lg px-6 py-3 transition-colors duration-200 ease-in-out">Demos</button></li>
+                <li><button id="tab-exercise" class="tab-btn text-lg px-6 py-3 transition-colors duration-200 ease-in-out">Hands-On Exercise</button></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="content-intro" class="tab-content">
+                <div class="bg-panel rounded-lg shadow-lg p-8 md:p-12">
+                     <p class="text-center text-secondary text-lg mb-8">This tutorial provides a practical guide to leveraging modern AI tools to accelerate your chemistry research. You will learn to automate data analysis and streamline your literature review process.</p>
+                    <h2 class="text-2xl font-bold text-center mb-6 text-accent">Agenda</h2>
+                    <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="bg-panel-light p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-2">Demo 1: Cursor</h3>
+                            <p class="text-secondary">Rapidly generate and refine Python code for data plotting.</p>
+                        </div>
+                        <div class="bg-panel-light p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-2">Demo 2: Gemini</h3>
+                            <p class="text-secondary">Turn experimental results into report-ready text and discover relevant literature.</p>
+                        </div>
+                        <div class="bg-panel-light p-6 rounded-lg border border-gray-200">
+                             <h3 class="font-bold text-xl mb-2">Exercise</h3>
+                            <p class="text-secondary">Apply these AI techniques to your own chemistry topic.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-demos" class="tab-content hidden">
+                 <p class="text-center text-secondary text-lg mb-8">Explore these step-by-step demonstrations to see how AI tools can be integrated into your research workflow. Select a demo below to begin.</p>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button id="sub-tab-cursor" class="sub-tab-btn px-6 py-2 font-semibold rounded-full transition-colors duration-200">Cursor Demo</button>
+                    <button id="sub-tab-gemini" class="sub-tab-btn px-6 py-2 font-semibold rounded-full transition-colors duration-200">Gemini Demo</button>
+                </div>
+
+                <div id="sub-content-cursor" class="sub-tab-content">
+                    <div class="bg-panel rounded-lg shadow-lg p-8 md:p-12">
+                        <h2 class="text-3xl font-bold text-center mb-2">AI-Assisted Data Analysis with Cursor</h2>
+                        <p class="text-secondary text-center mb-8">Go from raw data to a publication-quality plot in minutes.</p>
+
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 border-b-2 border-accent pb-2">Step 1: The Initial Prompt</h3>
+                                <p class="text-secondary mb-4">Provide Cursor's AI chat with a clear, natural language instruction about your data and goal.</p>
+                                <div class="bg-panel-light border-l-4 border-accent p-4 rounded-r-lg">
+                                    <p class="font-mono text-sm text-secondary">"Please first help simulate some reaction_kinetics datasets just for demo and  save it then I have a CSV file named 'reaction_kinetics.csv' with columns 'time_s', 'concentration_A', and 'temperature_C'. Write a Python script using pandas and matplotlib to load this data and create a plot of concentration_A versus time_s."</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 border-b-2 border-accent pb-2">Step 2: Refining the Plot</h3>
+                                <p class="text-secondary mb-4">The initial plot is a great start. Now, ask for professional refinements.</p>
+                                <div class="bg-panel-light border-l-4 border-accent p-4 rounded-r-lg">
+                                    <p class="font-mono text-sm text-secondary">"That's great. Now, make the plot look more professional. Add a grid, make the line dashed and blue, and save the plot to a file called 'kinetics_plot.png' instead of showing it."</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 border-b-2 border-accent pb-2">Step 3: The Final Output</h3>
+                                <p class="text-secondary mb-4">Cursor modifies the code and produces a publication-quality visualization based on your prompts.</p>
+                                <div class="bg-panel-light p-6 rounded-lg border border-gray-200">
+                                    <div class="chart-container">
+                                        <canvas id="kineticsChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sub-content-gemini" class="sub-tab-content hidden">
+                    <div class="bg-panel rounded-lg shadow-lg p-8 md-p-12">
+                         <h2 class="text-3xl font-bold text-center mb-2">Deep Research with Google Gemini</h2>
+                        <p class="text-secondary text-center mb-8">Turn results into contextual understanding and accelerate literature review.</p>
+                        <div class="space-y-8">
+                             <div>
+                                <h3 class="text-xl font-bold mb-3 border-b-2 border-accent pb-2">Step 1: The Experimental Finding</h3>
+                                <p class="text-secondary mb-4">Distill your key results into a concise summary.</p>
+                                 <div class="bg-panel-light border-l-4 border-accent p-4 rounded-r-lg">
+                                    <p class="text-secondary">"Our experiment on a new perovskite-based catalyst for ammonia synthesis showed a 92% yield in 6 hours at 80°C and 1 atm. The reaction kinetics appear to follow a second-order rate law. The catalyst showed no signs of degradation after 24 hours of continuous operation."</p>
+                                </div>
+                            </div>
+                             <div>
+                                <h3 class="text-xl font-bold mb-3 border-b-2 border-accent pb-2">Step 2: The Prompt for Gemini</h3>
+                                <p class="text-secondary mb-4">Craft a detailed prompt asking Gemini to find conclusions, search literature, and suggest next steps. The JSON format ensures a structured, predictable response.</p>
+                                <div class="code-block">Based on the following chemistry research results, please perform the following tasks and structure your response in a single JSON object with the keys "conclusions", "related_literature", and "next_steps":
+
+1.  **conclusions**: Analyze the results and provide three insightful conclusions a researcher could draw.
+2.  **related_literature**: Use Google Search to find two recent scientific papers that report similar findings with perovskite catalysts for ammonia synthesis. For each paper, provide the title, authors, and a one-sentence summary.
+3.  **next_steps**: Suggest three specific, actionable next steps for further research based on these findings.
+
+**Research Results:** "Our experiment on a new perovskite-based catalyst for ammonia synthesis showed a 92% yield in 6 hours at 80°C and 1 atm. The reaction kinetics appear to follow a second-order rate law. The catalyst showed no signs of degradation after 24 hours of continuous operation."</div>
+                            </div>
+                             <div>
+                                <h3 class="text-xl font-bold mb-3 border-b-2 border-accent pb-2">Step 3: Gemini's Grounded Response</h3>
+                                <p class="text-secondary mb-4">Gemini returns a structured JSON with insightful conclusions, relevant literature, and clear suggestions for future experiments.</p>
+                                <div class="code-block">{
+  "conclusions": [
+    "The perovskite catalyst exhibits exceptionally high catalytic activity for ammonia synthesis at unusually low temperatures and atmospheric pressure, challenging traditional high-pressure paradigms.",
+    "The material's high stability over a 24-hour period suggests it is a robust candidate for long-term industrial applications.",
+    "The second-order rate law provides a crucial clue for mechanistic studies, implying a reaction mechanism that likely involves two molecules of a reactant species in the rate-determining step."
+  ],
+  "related_literature": [
+    {
+      "title": "A Ruthenium-Based Perovskite Electrocatalyst for Ammonia Synthesis...",
+      "authors": "Wang, J., et al.",
+      "summary": "The study presents a ruthenium-doped perovskite that achieves high Faradaic efficiency for ammonia synthesis at ambient conditions."
+    }
+  ],
+  "next_steps": [
+    "Conduct in-situ spectroscopic analysis (e.g., DRIFTS, XPS) to elucidate the reaction mechanism and identify the active sites on the perovskite surface.",
+    "Perform long-term stability tests (over 500 hours) to confirm the catalyst's industrial viability.",
+    "Investigate the effect of doping the perovskite with other transition metals to potentially enhance the reaction rate."
+  ]
+}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-exercise" class="tab-content hidden">
+                 <div class="bg-panel rounded-lg shadow-lg p-8 md:p-12">
+                    <h2 class="text-3xl font-bold text-center mb-2">Build Your Own AI Assistant Workflow</h2>
+                    <p class="text-secondary text-center mb-8">Apply the techniques from the demos to a chemistry topic of your choice. This exercise will help solidify your understanding and show you the power of these tools on your own research problems.</p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                        <div class="bg-panel-light p-6 rounded-lg border border-gray-200">
+                             <h3 class="text-xl font-bold mb-3">Task 1: Data to Plot with Cursor</h3>
+                            <ol class="list-decimal list-inside text-secondary space-y-2">
+                                <li>Select a topic and create a small, simple CSV file with realistic-looking data.</li>
+                                <li>Use Cursor's AI Chat to write a Python script that loads your data, creates a professional plot, and calculates a meaningful metric (e.g., average yield).</li>
+                                <li>Ask Cursor to make at least one refinement to your plot.</li>
+                            </ol>
+                        </div>
+                         <div class="bg-panel-light p-6 rounded-lg border border-gray-200">
+                             <h3 class="text-xl font-bold mb-3">Task 2: Results to Context with Gemini</h3>
+                            <ol class="list-decimal list-inside text-secondary space-y-2">
+                                 <li>Write a one-sentence summary of the result from your Python script.</li>
+                                <li>Use the demo's Python script as a template to query Gemini for a summary, related phenomena, and search keywords.</li>
+                                <li>Analyze the output. Were the suggestions helpful for your topic?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                 </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+        const subTabs = document.querySelectorAll('.sub-tab-btn');
+        const subContents = document.querySelectorAll('.sub-tab-content');
+
+        const setActiveTab = (btnId) => {
+            tabs.forEach(tab => {
+                const isActive = tab.id === btnId;
+                tab.classList.toggle('tab-active', isActive);
+                tab.classList.toggle('tab-inactive', !isActive);
+            });
+            contents.forEach(content => {
+                const contentId = `content-${btnId.split('-')[1]}`;
+                content.classList.toggle('hidden', content.id !== contentId);
+            });
+        };
+
+        const setActiveSubTab = (btnId) => {
+            subTabs.forEach(tab => {
+                const isActive = tab.id === btnId;
+                tab.classList.toggle('sub-tab-active', isActive);
+                tab.classList.toggle('sub-tab-inactive', !isActive);
+            });
+            subContents.forEach(content => {
+                 const contentId = `sub-content-${btnId.split('-')[2]}`;
+                 content.classList.toggle('hidden', content.id !== contentId);
+            });
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => setActiveTab(tab.id));
+        });
+
+        subTabs.forEach(tab => {
+            tab.addEventListener('click', () => setActiveSubTab(tab.id));
+        });
+
+        // Initial state
+        setActiveTab('tab-intro');
+        setActiveSubTab('sub-tab-cursor');
+
+        // Chart.js implementation
+        const ctx = document.getElementById('kineticsChart').getContext('2d');
+        const kineticsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+                datasets: [{
+                    label: 'Concentration of A (mol/L)',
+                    data: [1.00, 0.78, 0.61, 0.47, 0.37, 0.29, 0.22, 0.17, 0.13, 0.10, 0.08],
+                    borderColor: '#D98C62',
+                    backgroundColor: 'rgba(217, 140, 98, 0.1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#D98C62',
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    tension: 0.1,
+                    fill: true,
+                    borderDash: [5, 5],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { 
+                        beginAtZero: true,
+                        title: { display: true, text: 'Concentration of A (mol/L)' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Time (s)' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Kinetics of Reaction: [A] vs. Time',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
